@@ -14,7 +14,9 @@ RUN pip install \
 	jupyterlab \
 	Pillow \
 	imageio \
-  opencv-python
+  opencv-python \
+  scikit-learn \
+  scikit-image
 
 ## light gbm
 
@@ -36,6 +38,6 @@ RUN echo "c.NotebookApp.token = ''" >> ${JUPYTER_CONFIG}
 RUN echo "c.NotebookApp.password = ''" >> ${JUPYTER_CONFIG}
 
 EXPOSE 8888
-VOLUME work
-WORKDIR "work"
+VOLUME /work
+WORKDIR "/work"
 CMD ["jupyter", "lab", "--allow-root"]
