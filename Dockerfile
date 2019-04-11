@@ -9,14 +9,17 @@ RUN pip install \
 	scipy \
 	sympy \
 	pandas \
+  geopandas \
 	matplotlib \
+  seaborn \
 	jupyter \
 	jupyterlab \
 	Pillow \
 	imageio \
   opencv-python \
   scikit-learn \
-  scikit-image
+  scikit-image \
+  h5py
 
 ## light gbm
 
