@@ -19,7 +19,9 @@ RUN pip install \
   opencv-python \
   scikit-learn \
   scikit-image \
-  h5py
+  h5py \
+  imbalanced-learn \
+  hyperopt
 
 ## light gbm
 
