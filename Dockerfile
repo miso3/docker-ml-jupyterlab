@@ -2,20 +2,20 @@ FROM python:3.7
 
 LABEL maintainer "miso3"
 
-RUN apt update && apt upgrade -y
+RUN apt-get update && apt-get upgrade -y
 
 RUN pip install \
-	numpy \
-	scipy \
-	sympy \
-	pandas \
+  numpy \
+  scipy \
+  sympy \
+  pandas \
   geopandas \
-	matplotlib \
+  matplotlib \
   seaborn \
-	jupyter \
-	jupyterlab \
-	Pillow \
-	imageio \
+  jupyter \
+  jupyterlab \
+  Pillow \
+  imageio \
   opencv-python \
   scikit-learn \
   scikit-image \
@@ -25,12 +25,12 @@ RUN pip install \
 
 ## light gbm
 
-RUN apt install -y cmake build-essential gcc g++ git
+RUN apt-get install -y cmake build-essential gcc g++ git
 RUN git clone --recursive https://github.com/Microsoft/LightGBM && \
-			cd LightGBM/python-package && python setup.py install
+        cd LightGBM/python-package && python setup.py install
 
 RUN apt autoremove -y && apt clean && \
-    	rm -rf /usr/local/src/*
+        rm -rf /usr/local/src/*
 
 ## jupyter
 
