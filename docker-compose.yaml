@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: ml-jupyterlab
+    image: ml-jupyterlab
     volumes:
       - ./work:/work
     ports:
