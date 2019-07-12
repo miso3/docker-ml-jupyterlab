@@ -21,7 +21,8 @@ RUN pip install \
   scikit-image \
   h5py \
   imbalanced-learn \
-  hyperopt
+  hyperopt \
+  statsmodels
 
 ## light gbm
 
@@ -37,7 +38,6 @@ RUN apt autoremove -y && apt clean && \
 RUN yes | jupyter notebook --generate-config --allow-root
 ENV JUPYTER_CONFIG /root/.jupyter/jupyter_notebook_config.py
 RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> ${JUPYTER_CONFIG}
-RUN echo "c.NotebookApp.open_browser = False" >> ${JUPYTER_CONFIG}
 RUN echo "c.NotebookApp.open_browser = False" >> ${JUPYTER_CONFIG}
 RUN echo "c.NotebookApp.token = ''" >> ${JUPYTER_CONFIG}
 RUN echo "c.NotebookApp.password = ''" >> ${JUPYTER_CONFIG}
