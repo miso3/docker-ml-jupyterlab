@@ -2,31 +2,20 @@ FROM python:3.7
 
 LABEL maintainer "miso3"
 
-RUN apt-get update && apt-get upgrade -y
+SHELL ["/bin/bash", "-c"] 
 
-RUN pip install \
-  numpy \
-  scipy \
-  sympy \
-  pandas \
-  geopandas \
-  matplotlib \
-  seaborn \
-  jupyter \
-  jupyterlab \
-  Pillow \
-  imageio \
-  opencv-python \
-  scikit-learn \
-  scikit-image \
-  h5py \
-  imbalanced-learn \
-  hyperopt \
-  statsmodels
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y cmake build-essential gcc g++ git
+
+
+# install python libraries
+COPY requirements.txt requirements.txt
+RUN pip install -U pip
+RUN pip install -r requirements.txt
 
 ## light gbm
 
-RUN apt-get install -y cmake build-essential gcc g++ git
+
 RUN git clone --recursive https://github.com/Microsoft/LightGBM && \
         cd LightGBM/python-package && python setup.py install
 
@@ -41,7 +30,9 @@ RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> ${JUPYTER_CONFIG}
 RUN echo "c.NotebookApp.open_browser = False" >> ${JUPYTER_CONFIG}
 RUN echo "c.NotebookApp.token = ''" >> ${JUPYTER_CONFIG}
 RUN echo "c.NotebookApp.password = ''" >> ${JUPYTER_CONFIG}
+RUN echo "c.NotebookApp.terminado_settings = { 'shell_command': ['/bin/bash'] }" >> ${JUPYTER_CONFIG}
 
+# run JupyterLab
 EXPOSE 8888
 VOLUME /work
 WORKDIR "/work"
