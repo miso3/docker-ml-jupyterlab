@@ -2,8 +2,6 @@ FROM python:3.7
 
 LABEL maintainer "miso3"
 
-SHELL ["/bin/bash", "-c"] 
-
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y cmake build-essential gcc g++ git
 
@@ -14,8 +12,6 @@ RUN pip install -U pip
 RUN pip install -r requirements.txt
 
 ## light gbm
-
-
 RUN git clone --recursive https://github.com/Microsoft/LightGBM && \
         cd LightGBM/python-package && python setup.py install
 
