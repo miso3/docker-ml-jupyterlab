@@ -17,3 +17,4 @@ imbalanced-learn
 hyperopt
 statsmodels
 MulticoreTSNE
+umap-learn
