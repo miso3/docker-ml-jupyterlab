@@ -18,3 +18,4 @@ hyperopt
 statsmodels
 MulticoreTSNE
 umap-learn
+spacy[ja]
