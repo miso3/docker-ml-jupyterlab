@@ -19,3 +19,5 @@ statsmodels
 MulticoreTSNE
 umap-learn
 spacy[ja]
+google-cloud-bigquery[bqstorage,pandas]
+pyarrow

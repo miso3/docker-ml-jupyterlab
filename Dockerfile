@@ -2,6 +2,8 @@ FROM python:3.8
 
 LABEL maintainer "miso3"
 
+ENV GOOGLE_APPLICATION_CREDENTIALS /gcp-key.json
+
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y cmake build-essential gcc g++ git
 

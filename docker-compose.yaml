@@ -9,5 +9,6 @@ services:
     image: ml-jupyterlab
     volumes:
       - ./work:/work
+      - ${GOOGLE_APPLICATION_CREDENTIALS}:/gcp-key.json
     ports:
       - 8888:8888
