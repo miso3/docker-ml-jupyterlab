@@ -2,6 +2,7 @@ numpy
 scipy
 sympy
 pandas
+pyyaml
 geopandas
 matplotlib
 seaborn
@@ -21,3 +22,6 @@ umap-learn
 spacy[ja]
 google-cloud-bigquery[bqstorage,pandas]
 pyarrow
+ipywidgets
+lckr-jupyterlab-variableinspector
+
